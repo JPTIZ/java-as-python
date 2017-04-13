@@ -6,8 +6,6 @@ import static general.Builtin.*;
 
 import org.junit.Test;
 
-import collections.Range;
-
 public class RangeTest {
 
     @Test

@@ -3,6 +3,34 @@ package general;
 import collections.Range;
 
 public class Builtin {
+	/*
+	 * Conversion-stuff
+	 */
+	
+	public static int _int() {
+		return 0;
+	}
+	
+	public static <T> int _int(T o) {
+		return (int)o;
+	}
+	
+	public static int _int(String s) {
+		return Integer.parseInt(s);
+	}
+	
+	public static int _int(String s, int base) {
+		return Integer.parseInt(s, base);
+	}
+	
+	public static long len(Pythonic o) {
+		return o.__len__();
+	}
+	
+	/*
+	 * Sets-stuff
+	 */
+	
 	/**
 	 * Check if any value in set is true.
 	 * @param set The set.
@@ -41,6 +69,10 @@ public class Builtin {
 		}
 		return min;
 	}
+	
+	/*
+	 * Range-stuff
+	 */
 	
 	public static Range range(int max) {
 		return new Range(max);
