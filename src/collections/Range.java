@@ -18,7 +18,11 @@ public class Range implements Iterable<Integer> {
      * Initializes Range as [min, max) interval.
      */
     public Range(int min, int max) {
-        this.iterator = new RangeIterator(min, max);
+        this(min, max, 1);
+    }
+    
+    public Range(int min, int max, int step) {
+    	this.iterator = new RangeIterator(min, max, step);
     }
 
     /**
@@ -31,9 +35,10 @@ public class Range implements Iterable<Integer> {
     private RangeIterator iterator;
 
     private class RangeIterator implements Iterator<Integer> {
-        public RangeIterator(int min, int max) {
+        public RangeIterator(int min, int max, int step) {
             this.current = min;
             this.max = max;
+            this.step = step;
         }
 
         public boolean hasNext() {
@@ -46,5 +51,6 @@ public class Range implements Iterable<Integer> {
 
         private int current;
         private int max;
+        private int step;
     }
 }
