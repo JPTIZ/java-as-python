@@ -42,11 +42,16 @@ public class Range implements Iterable<Integer> {
         }
 
         public boolean hasNext() {
+        	if (step < 0) {
+        		return current > max;
+        	}
             return current < max;
         }
 
         public Integer next() {
-            return current++;
+        	int old = current;
+        	current += step;
+            return old;
         }
 
         private int current;

@@ -9,21 +9,49 @@ import collections.Range;
 public class RangeTest {
 
     @Test
-    public void simpleForEach() {
+    public void simple_foreach() {
         int i_ = 0;
         for (int i: new Range(10)) {
-            assertEquals(i, i_);
+            assertEquals(i_, i);
             i_++;
         }
+        
+        assertEquals(10, i_);
     }
     
     @Test
-    public void minAndMaxRange() {
+    public void min_and_max_range() {
         int i_ = 10;
+        
         for (int i: new Range(10, 30)) {
-            assertEquals(i, i_);
+            assertEquals(i_, i);
             i_++;
         }
+        
+        assertEquals(30, i_);
     }
 
+    @Test
+    public void step() {
+    	int step = 5;
+    	
+    	int i_ = 0;
+    	for (int i: new Range(0, 30, step)) {
+    		assertEquals(i_, i);
+    		i_ += step;
+    	}
+    	
+    	assertEquals(i_, 30);
+    }
+    
+    @Test
+    public void downto_step() {
+    	int i_ = 10;
+    	for (int i: new Range(10, 0, -1)) {
+    		assertEquals(i_, i);
+    		i_--;
+    	}
+    	
+    	assertEquals(0, i_);
+    }
 }
