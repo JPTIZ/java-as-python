@@ -1,5 +1,7 @@
 package general;
 
+import collections.Range;
+
 public class Builtin {
 	/**
 	 * Check if any value in set is true.
@@ -38,5 +40,17 @@ public class Builtin {
 			}
 		}
 		return min;
+	}
+	
+	public static Range range(int max) {
+		return new Range(max);
+	}
+	
+	public static Range range(int min, int max) {
+		return new Range(min, max);
+	}
+	
+	public static Range range(int min, int max, int step) {
+		return new Range(min, max, step);
 	}
 }
